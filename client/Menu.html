@@ -1,0 +1,9 @@
+<template name="Menu">
+{{#each recipes}}
+	<h3>{{name}} </h3>
+	<p>{{desc}}</p>
+
+{{else}}
+	<p>Add a recipe to your menu first</p> 	
+	{{/each}}
+</template>

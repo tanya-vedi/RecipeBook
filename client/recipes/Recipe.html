@@ -1,0 +1,27 @@
+<template name="Recipe">
+	{{#if Template.subscriptionsReady}}
+		{{#each recipes}}
+	<article name="SingleRecipe" class="recipe {{#if inMenu}} in-menu {{/if}}">
+		<h3>{{name}}</h3>
+		<i class="fa fa-pencil"></i>
+		<i class="fa fa-trash"></i>
+		{{#if $.Session.get "editMode"}}
+		{{>quickForm collection="Recipes" id=updateRecipeId type="update" doc=this autosave=true}}
+		{{else}}
+		<p>{{desc}}</p>
+		<p>
+			{{#each ingredients}}
+			
+			<span>{{name}}-{{amount}}</span>
+			{{/each}}
+		</p>
+			<a href="/recipe/{{_id}}">View Details</a>
+		<button class="btn-primary toggle-menu">Add to menu</button>
+		<button class="btn-deny toggle-menu">Remove from menu</button>
+		{{/if}}
+		
+	</article>
+
+{{/each}}
+{{/if}}
+</template>

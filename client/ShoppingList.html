@@ -1,0 +1,10 @@
+<template name="shoppinglist">
+	{{#each items}}
+		{{#each ingredients	}}
+			{{name}}-{{quantity}}
+<br>
+		{{/each}}
+	{{else}}
+	Add a recipe first
+	{{/each}}
+</template>
